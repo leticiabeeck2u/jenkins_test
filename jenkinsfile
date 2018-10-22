@@ -1,6 +1,10 @@
-echo "# jenkins_test" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/leticiabeeck2u/jenkins_test.git
-git push -u origin master
+pipeline {
+    agent { docker { image 'python:3.5.1' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
+        }
+    }
+}
